@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <vector>
 #include <array>
 #include <string>
@@ -21,7 +21,7 @@ void Zadanie1()
 {
     cout << "[Zadanie 1]" << endl << endl;
     /*
-    * Napisz program, w którym: 
+    * Napisz program, w którym:
     a) użytkownik poda liczbę elementów wektora;
     b) pobrane zostaną od użytkownika wszystkie elementy wektora;
     c) wskazana zostanie wartość elementu maksymalnego wektora;
@@ -39,7 +39,7 @@ void Zadanie1()
     int najwiekszyElement = 0, indexNajwiekszegoElementu = 0, i = 0;
     for (auto const& element : wektor)
     {
-        if (element > najwiekszyElement) 
+        if (element > najwiekszyElement)
         {
             najwiekszyElement = element; // Przypisujemy najwiekszą wartość do zmiennej
             indexNajwiekszegoElementu = i; //Przypisujemy dany index do zmiennej 
@@ -55,7 +55,7 @@ void Zadanie2()
     Napisz program, który umożliwia:
     a) wczytanie aktualnego rozmiaru tablicy liczb całkowitych;
     b) wczytanie elementów tablicy liczb całkowitych;
-    c) zamianę miejscami elementów tablicy, lezących po przeciwnej stronie prostej pionowej, 
+    c) zamianę miejscami elementów tablicy, lezących po przeciwnej stronie prostej pionowej,
     dzielącej tablicę na dwie równe części.
     */
     int wartosci, elementy;
@@ -64,31 +64,39 @@ void Zadanie2()
     cout << endl;
     int* tab;
     tab = new int[elementy];
+    //Pobieranie wartość
     for (int i = 0; i < elementy; i++)
     {
-        cout << "Podaj wielkosc elementu nr." << i+1 << endl;
+        cout << "Podaj wielkosc elementu nr [" << i + 1 << "]\n";
         cin >> wartosci;
         tab[i] = wartosci;
     }
-    cout << endl << "Tablica przed odwroceniem" << endl << endl;
-    for (int i = 0; i < elementy; i++)
+
+    cout << endl << "Tablica wejsciowa" << endl << endl << endl;
+
+    for (int i = 0; i < elementy - 1; i += 2)
     {
-        cout << tab[i] << endl;
+        cout << tab[i] << "\t" << tab[i + 1] << endl;
     }
-    //Odwracanie tablicy pętlą for 
-    for (int i = 0; i < elementy/2; i++)
+    if (elementy % 2 != 0)
     {
-        swap(tab[i], tab[elementy - 1 - i]);
+        cout << tab[elementy - 1] << endl;
     }
-    cout << endl << "Tablica po odwroceniu" << endl << endl;
-    for (int i = 0; i < elementy; i++)
+
+    cout << endl << "Tablica wyjsciowa" << endl << endl << endl;
+
+    for (int i = 0; i < elementy - 1; i += 2)
     {
-        cout << tab[i] << endl;
+        cout << tab[i + 1] << "\t" << tab[i] << endl;
+    }
+    if (elementy % 2 != 0)
+    {
+        cout << "\t" << tab[elementy - 1] << endl;
     }
 }
 
 int main()
 {
-    //Zadanie1();
+    Zadanie1();
     Zadanie2();
 }
